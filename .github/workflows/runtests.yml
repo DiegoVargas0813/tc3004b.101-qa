@@ -25,10 +25,6 @@ jobs:
             cd ..
             cd tests
             npm install
-            npx webdriver-manager update --versions.chrome 120
-            npx webdriver-manager start &
-            sleep 5
-            npx webdriver-manager update
             chmod +x ./node_modules/.bin/mocha
             ./node_modules/.bin/mocha *.js
       - uses: actions/upload-artifact@v4
