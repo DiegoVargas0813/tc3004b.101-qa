@@ -77,5 +77,13 @@ describe('test1', function() {
     await driver.findElement(By.id("num2")).click()
     await driver.findElement(By.id("num2")).sendKeys("987654321")
     await driver.findElement(By.css("button:nth-child(2)")).click()
+
+
+        
+    const filename = 'writinginbothfields';
+
+    const encodedString = await driver.takeScreenshot();
+
+    await fs.writeFileSync(`./screenshots/${filename}.png`, encodedString, 'base64');
   })
 })
