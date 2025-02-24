@@ -77,5 +77,12 @@ describe('test1', function() {
     await driver.findElement(By.id("num2")).click()
     await driver.findElement(By.id("num2")).sendKeys("9999999999999999999")
     await driver.findElement(By.css("button:nth-child(1)")).click()
+
+    
+    const filename = 'sumoverflow';
+
+    const encodedString = await driver.takeScreenshot();
+
+    await fs.writeFileSync(`./screenshots/${filename}.png`, encodedString, 'base64');
   })
 })

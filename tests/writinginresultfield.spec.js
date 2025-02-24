@@ -80,5 +80,12 @@ describe('test1', function() {
     await driver.findElement(By.id("result")).click()
     await driver.findElement(By.id("result")).click()
     await driver.findElement(By.id("result")).click()
+
+        
+    const filename = 'writinginresultfield';
+
+    const encodedString = await driver.takeScreenshot();
+
+    await fs.writeFileSync(`./screenshots/${filename}.png`, encodedString, 'base64');
   })
 })
