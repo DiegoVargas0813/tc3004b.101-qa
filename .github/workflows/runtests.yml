@@ -42,7 +42,7 @@ jobs:
             cd ..
             cd tests
             npm install
-            ./node_modules/.bin/mocha *.js
+            ./node_modules/.bin/mocha *.spec.js
 
        
 
