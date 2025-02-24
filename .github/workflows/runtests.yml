@@ -35,6 +35,7 @@ jobs:
           chrome-version: 120
           install-dependencies: true
       - run: |
+            chmod +x ./node_modules/.bin/mocha
             cd src
             python3 -m http.server 8000 &
             sleep 10 &&
