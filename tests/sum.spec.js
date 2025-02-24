@@ -7,12 +7,52 @@ describe('sum', function() {
   let driver
   let vars
   beforeEach(async function() {
-    driver = await new Builder().forBrowser('firefox').build()
+
+    const chrome = require('selenium-webdriver/chrome');
+
+        const options = new chrome.Options();
+
+        options.addArguments('--headless', '--no-sandbox', '--disable-dev-shm-usage');
+
+        driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
+
+    
+
+    
+
     vars = {}
+
   })
-  afterEach(async function() {
-    await driver.quit();
-  })
+
+  afterEach(async function () {
+
+        if (driver) {
+
+            // Take a screenshot of the result page
+
+            const filename = this.currentTest.fullTitle()
+
+                .replace(/['"]+/g, '')
+
+                .replace(/[^a-z0-9]/gi, '_')
+
+                .toLowerCase();;
+
+            const encodedString = await driver.takeScreenshot();
+
+            await fs.writeFileSync(`./screenshots/${filename}.png`,
+
+                encodedString, 'base64');
+
+ 
+
+            // Close the browser
+
+            await driver.quit();
+
+        }
+
+    });
   it('sum', async function() {
     await driver.get("http://localhost:8000/")
     await driver.manage().window().setRect({ width: 550, height: 816 })
