@@ -18,6 +18,9 @@ jobs:
           chrome-version: 120
           install-dependencies: true
       - run: |
+            sudo apt-get update
+            sudo apt-get install -y chromium-chromedriver
+            sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
             cd src
             python3 -m http.server 8000 &
             sleep 10 &&
