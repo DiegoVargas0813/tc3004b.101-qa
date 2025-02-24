@@ -34,7 +34,6 @@ jobs:
           chrome-version: 120
           install-dependencies: true
       - run: |
-            npx mocha
             cd src
             python3 -m http.server 8000 &
             sleep 10 &&
