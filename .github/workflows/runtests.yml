@@ -5,7 +5,8 @@ name: Run tests
 on:
 
   workflow_dispatch:
-
+  #Uncomment to do a pull request after the tests.
+  #pull_request:
   
 
 jobs:
