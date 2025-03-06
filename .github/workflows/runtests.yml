@@ -23,7 +23,7 @@ jobs:
             sleep 10 &&
             curl http://localhost:8000
             cd ..
-            cd tests
+            cd frontend/tests
             npm install
             chmod +x ./node_modules/.bin/mocha
             ./node_modules/.bin/mocha *.js
