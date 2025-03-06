@@ -69,11 +69,9 @@ describe('test1', function() {
         }
 
     });
-  it('subinvalidinput', async function() {
+  it('subblankminusvalid', async function() {
     await driver.get("http://localhost:8000/")
     await driver.manage().window().setRect({ width: 780, height: 816 })
-    await driver.findElement(By.id("num1")).click()
-    await driver.findElement(By.id("num1")).sendKeys("hello")
     await driver.findElement(By.id("num2")).click()
     await driver.findElement(By.id("num2")).sendKeys("5")
     await driver.findElement(By.css("button:nth-child(2)")).click()
