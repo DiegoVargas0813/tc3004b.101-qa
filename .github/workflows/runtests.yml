@@ -18,12 +18,12 @@ jobs:
           chrome-version: 120
           install-dependencies: true
       - run: |
-            cd src
+            cd frontend/src
             python3 -m http.server 8000 &
             sleep 10 &&
             curl http://localhost:8000
             cd ..
-            cd frontend/tests
+            cd tests
             npm install
             chmod +x ./node_modules/.bin/mocha
             ./node_modules/.bin/mocha *.js
